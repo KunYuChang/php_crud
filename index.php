@@ -13,7 +13,8 @@ if (isset($_POST['submit'])) {
 
     $result = mysqli_query($con, $sql);
     if ($result) {
-        echo 'Data inserted successfully';
+        // echo 'Data inserted successfully';
+        header('location: read.php');
     } else {
         die(mysqli_error($con));
     }
@@ -28,13 +29,13 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP CRUD</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
 <body>
     <div class="container my-5">
-        <form method="POST">
+        <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
             <div class="mb-3">
                 <label class="form-label">First name</label>
                 <input type="text" class="form-control" placeholder="Enter your first name" name="fname" autocomplete="off">
