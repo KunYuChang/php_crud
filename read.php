@@ -44,8 +44,8 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <td><?php echo $row['email']; ?></td>
                         <td><?php echo $row['mobile']; ?></td>
                         <td>
-                            <a href="#" class="btn btn-dark">Update</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                            <a href="update.php?updateid=<?php echo $row['id'] ?>" class="btn btn-dark">Update</a>
+                            <a href="delete.php?deleteid=<?php echo $row['id'] ?>" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
