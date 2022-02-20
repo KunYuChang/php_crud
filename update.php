@@ -14,6 +14,7 @@ $email  = $row['email'];
 $mobile = $row['mobile'];
 $datas  = $row['multipleData'];
 $gender  = $row['gender'];
+$place  = $row['place'];
 
 if (isset($_POST['submit'])) {
     $fname  = $_POST['fname'];
@@ -23,9 +24,10 @@ if (isset($_POST['submit'])) {
     $datas  = $_POST['data'];
     $allData = implode(",", $datas);
     $gender  = $_POST['gender'];
+    $place  = $_POST['place'];
 
     $sql = "UPDATE user
-            SET fname='$fname',lname='$lname',email='$email',mobile='$mobile', multipleData='$allData',gender='$gender'
+            SET fname='$fname',lname='$lname',email='$email',mobile='$mobile', multipleData='$allData',gender='$gender',place='$place'
             WHERE id='$id'";
     $result = mysqli_query($con, $sql);
     if ($result) {
@@ -91,6 +93,15 @@ if (isset($_POST['submit'])) {
                 Gender:
                 <input type="radio" name="gender" value="male">Male
                 <input type="radio" name="gender" value="female">Female
+            </div>
+            <!-- select place -->
+            <div>
+                <select name="place">
+                    <option value="CCU">CCU</option>
+                    <option value="NYUST">NYUST</option>
+                    <option value="NFU">NFU</option>
+                    <option value="WFU">WFU</option>
+                </select>
             </div>
             <button type="submit" class="btn btn-primary my-3" name="submit">Update</button>
         </form>

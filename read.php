@@ -34,6 +34,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                     <th scope="col">Mobile</th>
                     <th scope="col">Subjects</th>
                     <th scope="col">Gender</th>
+                    <th scope="col">Place</th>
                     <th scope="col">Options</th>
                 </tr>
             </thead>
@@ -47,6 +48,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <td><?php echo $row['mobile']; ?></td>
                         <td><?php echo $row['multipleData'] ?></td>
                         <td><?php echo $row['gender'] ?></td>
+                        <td><?php echo $row['place'] ?></td>
                         <td>
                             <a href="update.php?updateid=<?php echo $row['id'] ?>" class="btn btn-dark">Update</a>
                             <a href="delete.php?deleteid=<?php echo $row['id'] ?>" class="btn btn-danger">Delete</a>
