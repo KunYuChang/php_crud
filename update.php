@@ -13,6 +13,7 @@ $lname  = $row['lname'];
 $email  = $row['email'];
 $mobile = $row['mobile'];
 $datas  = $row['multipleData'];
+$gender  = $row['gender'];
 
 if (isset($_POST['submit'])) {
     $fname  = $_POST['fname'];
@@ -21,9 +22,10 @@ if (isset($_POST['submit'])) {
     $mobile = $_POST['mobile'];
     $datas  = $_POST['data'];
     $allData = implode(",", $datas);
+    $gender  = $_POST['gender'];
 
     $sql = "UPDATE user
-            SET fname='$fname',lname='$lname',email='$email',mobile='$mobile', multipleData='$allData'
+            SET fname='$fname',lname='$lname',email='$email',mobile='$mobile', multipleData='$allData',gender='$gender'
             WHERE id='$id'";
     $result = mysqli_query($con, $sql);
     if ($result) {
@@ -83,6 +85,12 @@ if (isset($_POST['submit'])) {
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="data[]" value="PHP">
                 <label class="form-check-label">PHP</label>
+            </div>
+            <!-- gender -->
+            <div>
+                Gender:
+                <input type="radio" name="gender" value="male">Male
+                <input type="radio" name="gender" value="female">Female
             </div>
             <button type="submit" class="btn btn-primary my-3" name="submit">Update</button>
         </form>

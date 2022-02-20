@@ -8,10 +8,11 @@ if (isset($_POST['submit'])) {
     $mobile = $_POST['mobile'];
     $datas = $_POST['data'];
     $allData = implode(',', $datas);
+    $gender = $_POST['gender'];
 
     // insert query
-    $sql = "INSERT INTO user (fname,lname,email,mobile, multipleData)
-            VALUES ('$fname','$lname','$email','$mobile', '$allData')";
+    $sql = "INSERT INTO user (fname, lname, email, mobile, multipleData, gender)
+            VALUES ('$fname', '$lname', '$email', '$mobile', '$allData', '$gender')";
 
     $result = mysqli_query($con, $sql);
     if ($result) {
@@ -54,6 +55,7 @@ if (isset($_POST['submit'])) {
                 <label class="form-label">Mobile</label>
                 <input type="text" class="form-control" placeholder="Enter your mobile" name="mobile" autocomplete="off">
             </div>
+            <!-- skill -->
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="data[]" value="HTML">
                 <label class="form-check-label">HTML</label>
@@ -69,6 +71,12 @@ if (isset($_POST['submit'])) {
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="data[]" value="PHP">
                 <label class="form-check-label">PHP</label>
+            </div>
+            <!-- gender -->
+            <div>
+                Gender:
+                <input type="radio" name="gender" value="male">Male
+                <input type="radio" name="gender" value="female">Female
             </div>
             <button type="submit" class="btn btn-primary my-3" name="submit">Submit</button>
         </form>
