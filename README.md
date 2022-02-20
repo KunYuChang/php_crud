@@ -10,3 +10,7 @@
 
 1. mysqli_fetch_assoc 一次只會輸出一行，因此需要使用 while 儲存陣列，而不能直接使用 foreach。
 2. insert checkbox , from name 要使用陣列命名, ex. data[] , 可以使用 implode 將陣列轉字串存入資料庫
+
+## 出處
+
+PHP CRUD series using MySQL Database for beginners | khaiserkhanam
